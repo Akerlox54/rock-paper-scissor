@@ -22,7 +22,7 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    console.log(humanChoice, computerChoice);
+    console.log(`Human chose: ${humanChoice}` + ' | ' + `computer chose: ${computerChoice}` );
     if (humanChoice === computerChoice
         && humanChoice !== null && humanChoice !== undefined
         && computerChoice !== null && humanChoice !== undefined
@@ -39,5 +39,15 @@ function playRound(humanChoice, computerChoice) {
     ) {
         alert('Computer wins!');
     computerScore =+ 1; }
-    else alert('An error occurred!')
+    else alert('An error occurred!');
+}
+
+function playGame() {
+    for (let i = 1; i < 6; i++) {   
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    if (humanScore === computerScore) {alert('Overall: Draw!');}
+    else if (humanScore > computerScore) {alert('Overall: You\'ve won!');}
+    else if (computerScore > humanScore) {alert('Overall: You\'ve lost!');}
+    else alert('An error occurred!');
 }
